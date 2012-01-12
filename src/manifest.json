@@ -1,0 +1,19 @@
+{
+  "name": "Lorem forms",
+  "version": "1.0",
+  "description": "Easy forms autofill for developers",
+  "background_page": "background.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Click on input field to select <form> that have to be prefilled"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["loremforms_cont.js"]
+    }
+  ],
+  "permissions": [
+    "http://*/*", "tabs"
+  ]
+}
