@@ -43,8 +43,6 @@
 
       chrome.extension.onRequest.addListener(
         function(request, sender, sendResponse) {
-          if (!sender.tab)
-            return;
 
           var active_el = document.activeElement;
 
@@ -190,12 +188,12 @@
         sentence = [],
         dot = true;
 
-      if (typeof max == 'number' && max > min) {
+      if (typeof max === 'number' && max > min) {
         words = this.randomNumber(min, max);
       }
 
       for(_i = 0; _i < words; _i++) {
-        var index = this.randomNumber(1, len),
+        var index = this.randomNumber(1, len) - 1,
           word;
 
         if (dot) {
@@ -217,6 +215,8 @@
     };
 
     Loremforms.prototype.generateNumber = function(max) {
+      max || (max = 1000);
+
       return this.randomNumber(1, max);
     };
 
