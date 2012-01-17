@@ -60,7 +60,7 @@
 
               _this.findInputs(_this.form);
             } else {
-              _this.showAlert('Form tag not found. Try clicking on input then click addon icon again.');
+              _this.showAlert('Form tag not found. Try clicking on input then click this icon.');
             }
           } else {
             // try to find parent form element
@@ -78,7 +78,7 @@
 
               } else if (current.tagName === 'BODY') {
                 stop = true;
-                this.showAlert('Form tag not found. Try clicking on input then click addon icon again.');
+                this.showAlert('Form tag not found. Try clicking on input then click this icon.');
               }
             }
           }
@@ -175,6 +175,8 @@
           }
           
           break;
+        default:
+          break;
       }
     };
 
@@ -187,14 +189,14 @@
     };
 
     Loremforms.prototype.mark = function(el){
-      el.setAttribute('data-loreforms', true);
+      el.setAttribute('data-loremforms', true);
     };
 
     Loremforms.prototype.removeMarkers = function() {
       if (typeof this.form !== 'object')
         return;
 
-      var marked = this.form.querySelectorAll('[data-foremforms=true]'),
+      var marked = this.form.querySelectorAll('[data-loremforms=true]'),
         _l,
         _i;
 
