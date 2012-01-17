@@ -9,11 +9,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["loremforms_cont.js"]
     }
   ],
   "permissions": [
-    "http://*/*", "tabs"
+    "http://*/*", "https://*/*", "tabs"
   ]
 }
