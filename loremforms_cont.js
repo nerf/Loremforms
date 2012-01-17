@@ -53,8 +53,15 @@
             
             _this.findInputs(_this.form);
           } else if (active_el.tagName === 'BODY') {
+            var forms = document.querySelectorAll('form');
 
-            _this.showAlert('Form tag not found. Try clicking on input then click addon icon again.');
+            if (forms.length === 1) {
+              _this.form = forms[0];
+
+              _this.findInputs(_this.form);
+            } else {
+              _this.showAlert('Form tag not found. Try clicking on input then click addon icon again.');
+            }
           } else {
             // try to find parent form element
             var stop = false;
@@ -80,7 +87,7 @@
           sendResponse({}); // clean request
         }
       );
-    }
+    };
 
     Loremforms.prototype.showAlert = function(msg) {
       return alert(msg);
@@ -108,6 +115,10 @@
             break;
           case "TEXTAREA":
             this.fillTextarea(curr);
+            break;
+          case "SELECT":
+            // sry for dump name 
+            this.fillSelect(curr); 
             break;
           default:
             if (curr.childNodes.length > 0)
@@ -156,12 +167,24 @@
           }
           
           break;
+        case "CHECKBOX":
+          if (this.generateNumber(10) % 2 === 0) {
+            el.checked = true;
+          } else {
+            el.checked = false;
+          }
+          
+          break;
       }
     };
 
     Loremforms.prototype.fillTextarea = function(el) {
       el.innerText = this.generateText(10, 50);
-    }
+    };
+
+    Loremforms.prototype.fillSelect = function(el) {
+      el.selectedIndex = this.randomNumber(0, el.length - 1);
+    };
 
     Loremforms.prototype.mark = function(el){
       el.setAttribute('data-loreforms', true);
@@ -178,7 +201,7 @@
       for(_i = 0, _l = marked.length; _i < _l; _i++) {
         marked[_i].removeAttribute('data-loremforms');
       }
-    }
+    };
 
     Loremforms.prototype.generateText = function(min, max) {
       min || (min = 10);
@@ -222,7 +245,7 @@
 
     Loremforms.prototype.randomNumber = function(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    };
 
     return Loremforms;
   })();
