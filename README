@@ -1,4 +1,4 @@
 Easy forms autofill for developers.
 
 Loremforms randomly fills your web forms with Lorem Ipsum text. This extension can be used to test large web forms as well as blablabla i'm bored.
-Current version supports: text inputs, checkboxes, radio buttons, selects and textareas
+Current version supports: text, number, email, url, checkboxes, radio buttons, selects, inputs and textareas

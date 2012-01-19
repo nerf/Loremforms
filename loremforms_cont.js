@@ -173,7 +173,21 @@
           } else {
             el.checked = false;
           }
+
+          this.mark(el);
           
+          break;
+        case "EMAIL":
+          el.value = this.generateText(1).toLowerCase() + '@example.com';
+
+          this.mark(el);
+
+          break;
+        case "URL":
+          el.value = 'http://' + this.generateText(1).toLowerCase() + '.example.com';
+
+          this.mark(el);
+
           break;
         default:
           break;
