@@ -142,7 +142,8 @@
 
           break;
         case "RADIO":
-          var buttons = this.form.querySelectorAll('input[type=radio][name=' + el.name + ']'),
+          var el_name = el.name.replace(/([^A-Za-z0-9_\u00A1-\uFFFF-])/g,
+            buttons = this.form.querySelectorAll('input[type=radio][name=' + el_name + ']'),
             _l = buttons.length,
             _i;
 
