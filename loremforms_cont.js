@@ -142,7 +142,7 @@
 
           break;
         case "RADIO":
-          var el_name = el.name.replace(/([^A-Za-z0-9_\u00A1-\uFFFF-])/g,
+          var el_name = el.name.replace(/([^A-Za-z0-9_\u00A1-\uFFFF-])/g, "\\$1")
             buttons = this.form.querySelectorAll('input[type=radio][name=' + el_name + ']'),
             _l = buttons.length,
             _i;
